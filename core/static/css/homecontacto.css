@@ -1,0 +1,13 @@
+
+@media (max-width: 767px){
+    .hide-on-mobile{
+        display: none;
+    }
+    
+}
+
+.texto{
+    margin-top: 30px;
+    color: #3797ff;
+    font-weight: 900;
+}

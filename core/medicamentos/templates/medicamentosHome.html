@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block link %}
+    <link rel="stylesheet" href="{% static 'css/medicamentos.css' %}?v1.34dd5">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+{% endblock link %}
+{% block titulo %}
+    Medicamentos
+{% endblock  %}
+
+    
+
+{% block contenido %}
+
+{% include "app/carrousel.html" %}
+<div class="container container-categoria" >
+    <nav class="navbar navbar-expand-lg  " id="navbar-custom">
+        <div class="container-fluid navbar-color">
+          <a class="navbar-brand" href="#">Categorías</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Ofertas</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Productos libres de receta </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled">Disabled</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search" action="{% url 'search' %}">
+              <input class="form-control me-2" name="buscador" type="search" placeholder="Medicamentos" aria-label="Search">
+              
+              <button class="btn btn-outline-success" type="submit">Buscar</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+</div>
+
+
+<div class="container mt-2 nose" >
+    <div class="container container-fondo">
+
+    <div class="row ">
+        {% for item in listamedicamentos %}
+        <div class="col-12  col-sm-6 col-md-3 col-lg-2 mt-5">
+            <div class="card">
+            <img class="card-img-top w-70 " src="{% static 'img/'%}{{item.imagen}}" alt="">
+            <div class="card-body">
+                <h2 class="card-title custom-title"> {{item.nombre}} </h2>
+                <p class="card-text">{{item.descripcion}}</p>
+                <div class="cuadrados">
+                    <div class="cuadrado cuadrado-precio">
+                      ${{item.precio | floatformat:2}}
+                    </div>
+                    {% if item.stock == 0 %}
+                    <div class="cuadrado cuadrado-soldout ">
+                      SOLD OUT
+                    </div>
+                    {% else %}
+                    <div class="cuadrado cuadrado-enstock ">
+                      EN STOCK
+                    </div>
+                    {% endif %}
+                  </div>
+                
+
+            </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div>
+    {% include "paginator.html" %}
+</div>
+
+
+    
+
+    
+{% endblock %}

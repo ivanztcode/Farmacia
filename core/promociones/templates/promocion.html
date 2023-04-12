@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block titulo %}Promociones{% endblock  %}
+
+{% block contenido %}
+    <ul>
+        <li><a href="{% url 'promocion1' 1 %}">Promocion 1</a></li>
+        <li><a href="{% url 'promocion2' 2%}">Promocion 2</a></li>
+        <li><a href="{% url 'promocion3' 3%}">Promocion 3</a></li>
+        <li><a href="{% url 'promocion4' 4%}">Promocion 4</a></li>
+        <li><a href="{% url 'promocion5' 5%}">Promocion 5</a></li>
+    </ul>
+ 
+    <div class="container-fluid">
+        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <a href="{% url promociones.0.name 1 %}">
+                    <img src="{% static 'img/promociones/' %}{{ promociones.0.imagen }}" class="d-block w-100" alt="...">
+                </a>
+              </div>
+              <!-- Este bucle for recorre una lista de promociones-->
+              {% for promocion in promociones %}
+                <!-- Si el contador de la iteración actual es mayor que 1 y menor o igual que 5, entonces muestra el elemento -->
+              {% if forloop.counter > 1 and forloop.counter <= 5 %}
+                  <!-- Se define una variable "var" igual al valor del contador de la iteración actual -->
+                {% with var=forloop.counter %}
+                      <!-- Crea un enlace con la URL de la promoción y el valor de la variable "var" como parámetro -->
+                  <a href="{% url promocion.name var %}">
+                            <!-- Crea un div con la clase "carousel-item" que contiene la imagen de la promoción -->
+                    <div class="carousel-item">
+                      <img src="{% static 'img/promociones/' %}{{ promocion.imagen }}" class="d-block w-100" alt="Hola">
+                    </div>
+                  </a>
+                {% endwith %}
+              {% endif %}
+            {% endfor %}
+            
+            
+            
+          
+              
+            
+
+
+            </div>
+
+
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+    </div>
+
+{% endblock %}

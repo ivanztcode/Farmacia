@@ -1,0 +1,171 @@
+
+.carousel-item img {
+  max-height: 40vh;
+}
+.container-categoria{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+#navbar-custom{
+    background-color:#81baf8;
+    border-radius: 10px;
+}
+#navbar-custom a{
+    color: white;
+}
+
+#navbar-custom .navbar-nav .nav-link {
+    color: white;
+    font-weight: 900;
+}
+
+#navbar-custom button{
+    background-color:#489cf5;
+    color: white;
+}
+
+.container-fondo{
+    background-color: white;
+    border-radius: 15px;
+}
+
+.custom-title {
+    font-size: 1rem; /* ajusta el tamaño de fuente según sea necesario */
+    max-width: 100%; /* establece el ancho máximo como el ancho de la tarjeta */
+   
+    color: #489cf5;
+    font-weight: bold;
+  }
+
+.card{
+    max-width: 400px;
+    border: none;
+    box-shadow: 1px 1px 5px  #a5a5a5;
+}
+
+.card-img-top {
+    display: block; /* asegura que la imagen se muestre como un bloque */
+    margin: 0 auto; /* establece los márgenes superior e inferior en 0 y el margen izquierdo y derecho en automático para centrar la imagen horizontalmente */
+  }
+
+.precio{
+    background-color: green;
+    border-radius: 15px;
+}
+.cuadrados {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    cursor: default;
+  }
+
+  .cuadrado {
+    font-size: 10px;
+    font-weight: bold;
+    color: #fff;
+    display: inline-block;
+    padding: 5px 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-radius: 5px;
+  }
+
+  .cuadrado-precio {
+    background-color: #ffc107;
+  }
+  
+  .cuadrado-enstock {
+    background-color: #28a745;
+  }
+  
+  .cuadrado-soldout {
+    background-color: #dc3545;
+  }
+/* .card{
+    border: none;
+}
+.card-title{
+    display: flex;
+    color: red;
+    word-break:break-all;
+
+}
+.card-text{
+    height: 100px;
+    overflow: hidden;
+}
+.card:hover{
+    box-shadow: 20px 20px 80px -44px #000;
+    transition: .5s ease-in-out;
+    cursor: pointer;
+}
+
+.container-medico{
+    justify-content: center;
+}
+.fondo{
+    background-color: white;
+    
+} */
+
+/* .container-card{
+    margin-top: 20px;
+    margin: 10px;
+
+}
+
+.card-custom {
+    width: 200px;
+    height: 300px;
+    
+  }
+.card-img-top {
+    max-width: 80%;
+    max-height: 120px;
+    margin: 0 auto;
+    display: block;
+}
+
+.card-body {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .card-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .card-text {
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+  .cuadrados {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .cuadrado {
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+    display: inline-block;
+    padding: 5px 10px;
+    margin-right: 5px;
+    border-radius: 5px;
+  }
+
+  .cuadrado-precio {
+    background-color: #ffc107;
+  }
+  
+  .cuadrado-enstock {
+    background-color: #28a745;
+  }
+  
+  .cuadrado-soldout {
+    background-color: #dc3545;
+  } */
+  

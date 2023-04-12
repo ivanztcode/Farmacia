@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+
+{% block link %}
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+
+{% endblock  %}
+
+{% block contenido %}
+
+<div class="container">
+    <h1>Medicamentos</h1>
+    <form method="get" action="{% url 'medicamentos' %}">
+        <input type="text" name="search" id="search" placeholder="Buscar medicamento" autocomplete="on">
+        <button type="submit">Buscar</button>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Precio</th>
+                <th>Stock</th>
+                <th>Categoría</th>
+                <th>Proveedor</th>
+                <th>Fecha de caducidad</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for medicamento in medicamentos %}
+            <tr>
+                <td>{{ medicamento.nombre }}</td>
+                <td>{{ medicamento.descripcion }}</td>
+                <td>{{ medicamento.precio }}</td>
+                <td>{{ medicamento.stock }}</td>
+                <td>{{ medicamento.categoria }}</td>
+                <td>{{ medicamento.proveedor }}</td>
+                <td>{{ medicamento.fecha_caducidad }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+{% endblock  %}
+
+{% block scripts %}
+<script>
+    // Obtener la lista de medicamentos para el autocompletado
+    var medicamentos = [
+        {% for medicamento in all_medicamentos %}
+            "{{ medicamento.nombre }}",
+        {% endfor %}
+    ];
+
+    // Inicializar el autocompletado
+    var input = document.getElementById("search");
+    new Awesomplete(input, {
+        list: medicamentos,
+        minChars: 1,
+        autoFirst: true
+    });
+</script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+
+{% endblock  %}

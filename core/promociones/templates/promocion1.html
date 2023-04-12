@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block contenido %}
+  <div class="container my-5">
+    <div class="row">
+      <div class="col-md-6">
+        <img src="{% static 'img/promociones/' %}{{ promocion.imagen }}" class="img-fluid" alt="{{ promocion.nombre }}">
+      </div>
+      <div class="col-md-6">
+        <h2>{{ promocion.nombre }}</h2>
+        <p>{{ promocion.descripcion }}</p>
+        <p>{{ promocion.name }}</p>
+
+        <a href="{% url 'promocion' %}" class="btn btn-primary">Volver</a>
+      </div>
+    </div>
+  </div>
+{% endblock %}
